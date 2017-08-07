@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--渐变色tab item-->
+    <declare-styleable name="ChangeColorIconView">
+        <attr name="tab_icon" format="reference" />
+        <attr name="tab_color" format="color" />
+        <attr name="tab_text" format="string" />
+        <attr name="tab_text_size" format="dimension" />
+    </declare-styleable>
+
+    <!--菜单栏选项容器样式-->
+    <declare-styleable name="DrawerMenuStyle">
+        <attr name="mode_single" format="boolean" />
+    </declare-styleable>
+</resources>

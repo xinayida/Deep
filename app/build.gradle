@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.chenenyu.router'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion "26.0.0"
+    defaultConfig {
+        applicationId "com.xinayida.deep"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        jackOptions {
+            enabled true
+        }
+        //防止room编译时报错
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+ext {
+    arch_version = '1.0.0-alpha3'
+    dagger_version = "2.11"
+//    espresso_version = '2.2.2'
+//    runner_version = '0.5'
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    //room - start
+    provided 'javax.annotation:jsr250-api:1.0'
+//    compile "android.arch.lifecycle:runtime:${arch_version}"
+    compile "android.arch.lifecycle:extensions:${arch_version}"
+    compile "android.arch.persistence.room:runtime:${arch_version}"
+    compile "android.arch.persistence.room:rxjava2:${arch_version}"
+    annotationProcessor "android.arch.lifecycle:compiler:${arch_version}"
+    annotationProcessor "android.arch.persistence.room:compiler:${arch_version}"
+    //room - end
+    //dagger - start
+    compile "com.google.dagger:dagger:${dagger_version}"
+    annotationProcessor "com.google.dagger:dagger-compiler:${dagger_version}"
+    //dagger - end
+//    compile project(path: ':lib')
+
+    compile 'com.github.xinayida:XUtils:v0.0.2'
+//    compile 'com.github.xinayida.XUtils:master-SNAPSHOT'
+}

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--页面背景色，由于使用侧滑系统背景属性为透明，所以这里自定义一个属性-->
+    <attr name="backgroundColor" format="color|reference" />
+</resources>
