@@ -6,6 +6,7 @@ import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Update;
 
 import com.xinayida.deep.pages.category.model.CategoryItem;
 import com.xinayida.deep.pages.category.model.ContentItem;
@@ -37,6 +38,9 @@ public interface CategoryDao {
 
     @Delete
     void delCategoryItem(CategoryItem... items);
+
+    @Update//(onConflict = OnConflictStrategy.REPLACE)
+    void updateCategoryItem(CategoryItem items);
 
 
 //    @Query("Select * from ContentItem where job LIKE :job")

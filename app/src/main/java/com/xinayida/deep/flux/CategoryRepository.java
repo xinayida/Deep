@@ -27,5 +27,6 @@ public interface CategoryRepository {
     LiveData<List<CategoryItem>> loadCategory();
     Completable addCategory(CategoryItem... items);
     Completable delCategory(CategoryItem... items);
+    Completable updateCategory(CategoryItem items);
 
 }

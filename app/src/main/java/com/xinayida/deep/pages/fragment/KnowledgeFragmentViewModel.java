@@ -3,6 +3,7 @@ package com.xinayida.deep.pages.fragment;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.xinayida.deep.AppConfig;
 import com.xinayida.deep.flux.CategoryRepository;
@@ -12,6 +13,7 @@ import com.xinayida.deep.pages.category.model.ContentItem;
 import com.xinayida.deep.store.entity.JobMenu;
 import com.xinayida.deep.store.entity.Tag;
 import com.xinayida.lib.utils.FileUtils;
+import com.xinayida.lib.utils.StringUtils;
 
 import java.util.List;
 
@@ -20,7 +22,6 @@ import javax.inject.Inject;
 import io.reactivex.CompletableObserver;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by ww on 2017/7/31.
@@ -105,6 +106,9 @@ public class KnowledgeFragmentViewModel extends ViewModel implements AppComponen
      * @param name
      */
     public void addCategory(String name) {
+        if (StringUtils.isEmpty(name)) {
+            Toast.makeText(appComponent.getAppContext(), "分类名称不能为空", Toast.LENGTH_SHORT).show();
+        }
 //        String dir = FileUtils.concatPath(appComponent.getAppContext().getExternalFilesDir(AppConfig.BASE_FOLDER).getAbsolutePath(), name);
         String dir = FileUtils.concatPath(FileUtils.getExternalStorageDirectory(), AppConfig.BASE_FOLDER, name);
         FileUtils.makeDirIfNotExist(dir);

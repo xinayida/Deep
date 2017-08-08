@@ -21,12 +21,16 @@ ext {
     supportLibraryVersion = '25.3.1'
 }
 
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
 allprojects {
     repositories {
+        jcenter()
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         maven { url 'https://maven.google.com' }
         maven { url 'https://jitpack.io' }
-        jcenter()
     }
 }
 

@@ -11,14 +11,15 @@ import com.xinayida.deep.R;
 import com.xinayida.deep.annotation.PageConfig;
 import com.xinayida.deep.base.BaseFragment;
 import com.xinayida.deep.flux.action.ActionType;
+import com.xinayida.deep.flux.store.AppStore;
 import com.xinayida.deep.injection.ViewModelFactory;
 import com.xinayida.deep.pages.category.CategoryLayoutProxy;
 import com.xinayida.deep.pages.category.model.CategoryItem;
 import com.xinayida.deep.store.entity.JobMenu;
 import com.xinayida.deep.store.entity.Tag;
+import com.xinayida.lib.rxflux.Action;
+import com.xinayida.lib.rxflux.Dispatcher;
 import com.xinayida.lib.utils.DialogUtil;
-import com.xinayida.rxflux.Action;
-import com.xinayida.rxflux.Dispatcher;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -107,6 +108,7 @@ public class KnowledgeFragment extends BaseFragment implements View.OnClickListe
             }
             for (CategoryItem item : categoryItems) {
                 CategoryLayoutProxy proxy = new CategoryLayoutProxy(getContext(), item);
+                proxy.inject(getAppContext().getAppComponent());
                 categoryLayoutProxies.add(proxy);
                 contentView.addView(proxy.getView());
             }

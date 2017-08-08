@@ -63,6 +63,7 @@ dependencies {
     //dagger - end
 //    compile project(path: ':lib')
 
-    compile 'com.github.xinayida:XUtils:v0.0.2'
-//    compile 'com.github.xinayida.XUtils:master-SNAPSHOT'
+//    compile 'com.github.xinayida:XUtils:v0.0.3'
+    compile 'com.github.xinayida:XUtils:-SNAPSHOT'
+
 }

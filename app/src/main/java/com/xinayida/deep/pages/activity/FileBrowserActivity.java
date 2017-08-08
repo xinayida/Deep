@@ -20,7 +20,7 @@ import java.util.TimerTask;
  * Created by ww on 2017/8/2.
  */
 
-@Route("filebrowser")
+//@Route("filebrowser")
 public class FileBrowserActivity extends ListActivity {
 
     protected final int UPDATE_DELAY = 5000;

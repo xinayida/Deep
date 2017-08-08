@@ -13,6 +13,7 @@ import java.util.List;
 import io.reactivex.Completable;
 import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Action;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -49,16 +50,16 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 
     @Override
     public Completable addContent(ContentItem... item) {
-        return Completable.fromAction(() -> {
+        return wrap(() -> {
             appDatabase.categoryDao().saveContentItem(item);
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        });
     }
 
     @Override
     public Completable delContent(ContentItem... item) {
-        return Completable.fromAction(() -> {
+        return wrap(() -> {
             appDatabase.categoryDao().delContentItem(item);
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        });
     }
 
     @Override
@@ -68,15 +69,26 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 
     @Override
     public Completable addCategory(CategoryItem... items) {
-        return Completable.fromAction(() -> {
+        return wrap(() -> {
             appDatabase.categoryDao().addCategoryItem(items);
-        }).subscribeOn(Schedulers.io());
+        });
     }
 
     @Override
     public Completable delCategory(CategoryItem... items) {
-        return Completable.fromAction(() -> {
+        return wrap(() -> {
             appDatabase.categoryDao().delCategoryItem(items);
-        }).subscribeOn(Schedulers.io());
+        });
+    }
+
+    @Override
+    public Completable updateCategory(CategoryItem item) {
+        return wrap(() -> {
+            appDatabase.categoryDao().updateCategoryItem(item);
+        });
+    }
+
+    private Completable wrap(Action action) {
+        return Completable.fromAction(action).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 }
