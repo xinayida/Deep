@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Deep.iml" filepath="$PROJECT_DIR$/Deep.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/foxit/foxit.iml" filepath="$PROJECT_DIR$/foxit/foxit.iml" />
     </modules>
   </component>
 </project>

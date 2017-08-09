@@ -134,7 +134,10 @@ public class KnowledgeFragment extends BaseFragment implements View.OnClickListe
         int id = view.getId();
         switch (id) {
             case R.id.knowledge_add_category:
-                DialogUtil.showEditDialog(getContext(), "添加分类", "添加", str -> viewModel.addCategory(str));
+                DialogUtil.showEditDialog(getContext(), "添加分类", "添加", str -> {
+                    swapEditState();
+                    viewModel.addCategory(str);
+                });
                 break;
             case R.id.toolbar_icon_menu:
                 Dispatcher.get().postAction(Action.type(ActionType.TOGGLE_DRAWER).build());

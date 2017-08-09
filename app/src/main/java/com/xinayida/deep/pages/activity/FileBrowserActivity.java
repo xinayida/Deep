@@ -1,6 +1,8 @@
 package com.xinayida.deep.pages.activity;
 
 import android.app.ListActivity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.chenenyu.router.annotation.Route;
+import com.foxit.ui.FoxitPdfActivity;
 import com.xinayida.deep.R;
 
 import java.io.File;
@@ -20,7 +23,7 @@ import java.util.TimerTask;
  * Created by ww on 2017/8/2.
  */
 
-//@Route("filebrowser")
+@Route("filebrowser")
 public class FileBrowserActivity extends ListActivity {
 
     protected final int UPDATE_DELAY = 5000;
@@ -161,10 +164,10 @@ public class FileBrowserActivity extends ListActivity {
         if (!item.file.isFile())
             return;
 
-//        Intent intent = new Intent(this, PdfDetailActivity.class);
-//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET); /* launch as a new document */
-//        intent.setAction(Intent.ACTION_VIEW);
-//        intent.setData(Uri.fromFile(item.file));
-//        startActivity(intent);
+        Intent intent = new Intent(this, FoxitPdfActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET); /* launch as a new document */
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.setData(Uri.fromFile(item.file));
+        startActivity(intent);
     }
 }

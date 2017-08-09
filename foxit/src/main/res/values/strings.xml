@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="action_settings">Settings</string>
+    <string name="search_back">Back</string>
+    <string name="search_hint">Please enter text to search</string>
+    <string name="password_hint">Please input password</string>
+	<string name="password_dialog_title">Password</string>
+	<string name="pwd_dialog_bnt_cancel">Cancel</string>
+    <string name="pwd_dialog_bnt_ok">OK</string>
+    <string name="highlight">Highlight</string>
+    <string name="underline">Underline</string>
+    <string name="link">Link</string>
+    <string name="freetext">FreeText</string>
+    <string name="note">Note</string>
+    <string name="insertimage">InsertImage</string>
+    <string name="importfromfdf">Import From FDF</string>
+    <string name="export2fdf">Export To FDF</string>
+    <string name="ok">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="editwindow_textview">Edit Window</string>
+    <string name="save">Save</string>
+    <string name="confirm">Confirm</string>
+
+</resources>

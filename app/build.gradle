@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.chenenyu.router'
 
+
 android {
     compileSdkVersion rootProject.compileSdkVersion
     buildToolsVersion "26.0.0"
@@ -19,6 +20,9 @@ android {
             annotationProcessorOptions {
                 arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
             }
+        }
+        ndk {
+            abiFilters "armeabi-v7a", "x86"
         }
     }
     buildTypes {
@@ -66,4 +70,5 @@ dependencies {
 //    compile 'com.github.xinayida:XUtils:v0.0.3'
     compile 'com.github.xinayida:XUtils:-SNAPSHOT'
 
+    compile project(path: ':foxit')
 }

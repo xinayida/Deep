@@ -6,6 +6,7 @@ import com.chenenyu.router.Router;
 import com.xinayida.deep.injection.component.AppComponent;
 import com.xinayida.deep.injection.component.DaggerAppComponent;
 import com.xinayida.deep.injection.module.AppModule;
+import com.xinayida.lib.utils.L;
 
 /**
  * Created by ww on 2017/7/18.
@@ -18,6 +19,7 @@ public class AppContext extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        L.init("Deep");
         initInjector();
         initRouter();
     }
